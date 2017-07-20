@@ -2,8 +2,11 @@ package com.starwars.model;
 
 import org.springframework.data.rest.core.config.Projection;
 
-@Projection(name = "filmTitleWithOpening", types = Film.class)
-public interface FilmTitleWithOpening {
+import java.util.List;
+
+@Projection(name = "filmsTitleWithOpening", types = Film.class)
+public interface FilmsTitleWithOpening {
+
     String getTitle();
     String getOpeningCrawl();
 }

@@ -22,7 +22,7 @@
   insert into film(title,episode_id,opening_crawl,director,producer,release_date) values ('Return of the Jedi',6,'Luke Skywalker has returned to his home planet of Tatooine in an attempt to rescue his friend Han Solo from the clutches of the vile gangster Jabba the Hutt. Little does Luke know that the GALACTIC EMPIRE has secretly begun construction on a new armored space station even more powerful than the first dreaded Death Star. When completed, this ultimate weapon will spell certain doom for the small band of rebels struggling to restore freedom to the galaxy...','Richard Marquand','Howard G. Kazanjian, George Lucas, Rick McCallum',TO_DATE('1983/05/25', 'YYYY/MM/DD'))
   insert into film(title,episode_id,opening_crawl,director,producer,release_date) values ('The Force Awakens',7,'Luke Skywalker has vanished. In his absence, the sinister FIRST ORDER has risen from the ashes of the Empire and will not rest until Skywalker, the last Jedi, has been destroyed. With the support of the REPUBLIC, General Leia Organa leads a brave RESISTANCE. She is desperate to find her brother Luke and gain his help in restoring peace and justice to the galaxy. Leia has sent her most daring pilot on a secret mission to Jakku, where an old ally has discovered a clue to Luke''s whereabouts....','J. J. Abrams','Kathleen Kennedy, J. J. Abrams, Bryan Burk',TO_DATE('2015/12/11', 'YYYY/MM/DD'))
 
--- Planets per film
+-- -- Planets per film
   insert into film_planets (film_id, planet_id) values (1, 6)
   insert into film_planets (film_id, planet_id) values (1, 2)
   insert into film_planets (film_id, planet_id) values (2, 1)
@@ -43,7 +43,3 @@
   insert into film_people (film_id, people_id) values (2,1)
   insert into film_people (film_id, people_id) values (2,2)
   insert into film_people (film_id, people_id) values (2,4)
-
--- Account
-  insert into account (id, username, password) values ('1', 'admin', 'admin')
-  insert into account (id, username, password) values ('2', 'basic', 'basic')

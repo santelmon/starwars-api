@@ -1,44 +1,45 @@
 package com.starwars.repository;
 
 import com.starwars.model.Planet;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.List;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class PlanetRepositoryTest {
-    
+
     @Autowired
     private PlanetRepository planetRepository;
 
     @Test
     public void should_find_by_name() throws Exception {
-        Planet alderaan = planetRepository.findByName("Alderaan");
-        Assert.assertTrue(alderaan.getName().equals("Alderaan"));
+
+        Planet alderaan = this.planetRepository.findByName( "Alderaan" );
+
+        assertThat( alderaan.getName(), is("Alderaan"));
     }
 
     @Test
-    public void should_find_planet_name_containing() throws Exception {
-        List<Planet> byNameContaining = planetRepository.findByNameContaining("o");
-        Assert.assertEquals(3,byNameContaining.size());
-    }
+    public void should_find_all_paging() {
 
-    @Test
-    public void should_get_planets_ordered() throws Exception {
-        List<Planet> planets = planetRepository.findAllByOrderByNameDesc();
-        Assert.assertTrue(planets.get(0).getName().equals("Yavin IV"));
-        Assert.assertTrue(planets.get(5).getName().equals("Alderaan"));
-    }
+        PageRequest page = new PageRequest( 0, 2);
+        Page<Planet> all = this.planetRepository.findAll(page);
 
-    @Test
-    public void should_find_by_population_greater_than() throws Exception {
-        List<Planet> planets = planetRepository.findByPopulationGreaterThan(Long.valueOf(5000));
-        Assert.assertEquals(3, planets.size());
+        Sort sort = new Sort(Sort.Direction.ASC, "climate")
+                .and(new Sort(Sort.Direction.DESC, "terrain"));
+
+        this.planetRepository.findAll(sort);
+
+        System.out.println("test");
+
     }
 }
