@@ -11,7 +11,7 @@ import java.util.Date;
 import java.util.List;
 
 @Repository
-public interface FilmRepository extends JpaRepository<Film, Long>, CustomFilmrepository {
+public interface FilmRepository extends JpaRepository<Film, Long>, CustomFilmRepository {
 
     @RestResource(exported = false)
     @Override
