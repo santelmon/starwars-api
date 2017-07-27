@@ -2,6 +2,7 @@ package com.starwars.auth;
 
 import com.starwars.model.Account;
 import com.starwars.repository.AccountRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -15,6 +16,7 @@ import java.util.Arrays;
 import java.util.Collection;
 
 @Service
+@Slf4j
 public class FakeAuthenticationProvider implements AuthenticationProvider {
 
     private AccountRepository accountRepository;
@@ -37,6 +39,8 @@ public class FakeAuthenticationProvider implements AuthenticationProvider {
 
         if( account != null && password.equals(account.getPassword()) ) {
             // Usuario correcto.
+
+            log.info("Usuario roles: " + getGrantedAuthorities(name));
             return new UsernamePasswordAuthenticationToken(name, password, getGrantedAuthorities(name));
         }
 
