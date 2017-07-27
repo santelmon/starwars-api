@@ -54,5 +54,6 @@ public class FilmController {
         imdbLinks.put( 4, "http://www.imdb.com/title/tt0076759/?ref_=fn_al_tt_3" );
         imdbLinks.put( 5, "http://www.imdb.com/title/tt0080684/?ref_=fn_al_tt_5" );
         imdbLinks.put( 6, "http://www.imdb.com/title/tt0086190/?ref_=fn_al_tt_4" );
+        imdbLinks.put( 7, "http://www.imdb.com/title/tt2488496/?ref_=nv_sr_1" );
     }
 }
