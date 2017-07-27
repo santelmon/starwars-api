@@ -13,6 +13,15 @@ import java.util.List;
 @Repository
 public interface FilmRepository extends JpaRepository<Film, Long>, CustomFilmRepository {
 
+
+    @RestResource(exported = false)
+    @Override
+    Film saveAndFlush(Film film);
+
+    @RestResource(exported = false)
+    @Override
+    Film save(Film film);
+
     @RestResource(exported = false)
     @Override
     void deleteInBatch(Iterable<Film> iterable);

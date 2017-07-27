@@ -3,12 +3,14 @@ package com.starwars.repository;
 import com.starwars.model.People;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.stereotype.Repository;
 
 import java.util.Collection;
 import java.util.List;
 
 @Repository
+@RepositoryRestResource(path = "persons")
 public interface PeopleRepository extends JpaRepository<People, Long> {
 
     People findByNameIgnoreCase(String name);
